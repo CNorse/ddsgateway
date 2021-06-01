@@ -30,7 +30,7 @@ $app->withEloquent();
 /**
  * Registering config files
  */
-$app ->configure('services');
+$app->configure('services');
 
 
 /*

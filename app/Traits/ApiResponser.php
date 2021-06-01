@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Traits;
+
 use Illuminate\Http\Response;
 
 
-trait ApiResponser{
+trait ApiResponser
+{
 
     /**
      * Build success response
@@ -28,7 +30,7 @@ trait ApiResponser{
      */
     public function validResponse($data, $code = Response::HTTP_OK)
     {
-     return response()->json(['data' => $data], $code);
+        return response()->json(['data' => $data], $code);
     }
 
      /**

@@ -6,41 +6,39 @@
     use App\Traits\ApiResponser;
     use Illuminate\Http\Request;
     use DB;
-    use App\Services\User2Service;
+    use App\Services\User2Service; // user2 Services
 
     Class User2Controller extends Controller {
-
+        // use to add your Traits ApiResponser
         use ApiResponser;
         /**
          * 
          * @var User2Service
          */
-        // private $request;
-
         public $user2Service;
 
-        /*
-        *
-        * @return void 
-        */
+        /**
+         * Create a new controller instance
+         * @return void
+         */
 
-        public function __construct(User2Service $user2Service){
+        public function __construct(User2Service $user2Service) {
             $this->user2Service = $user2Service;
         }
         
-
         /**
          * Return the list of users
          * @return Illuminate\Http\Response
          */
 
-        public function index(){
-          return $this->successResponse($this->user2Service->obtainUsers());
+        public function index()
+        {
+          return $this->successResponse($this->user2Service->obtainUsers2());
         }
 
         public function add(Request $request)
         {
-            return $this->successResponse($this->user2Service->createUser($request->all(), Response::HTTP_CREATED));
+            return $this->successResponse($this->user2Service->createUser2($request->all(), Response::HTTP_CREATED));
         }
 
         /**
@@ -50,17 +48,17 @@
         
         public function show($id)
         {
-            return $this->successResponse($this->user2Service->obtainUser($id));
+            return $this->successResponse($this->user2Service->obtainUser2($id));
         }
 
         /**
-        * Update an existing author
+        * Update an existing user
         * @return Illuminate\Http\Response
         */
 
         public function update(Request $request, $id)
         {
-            return $this->successResponse($this->user2Service->editUser($request->all(), $id));
+            return $this->successResponse($this->user2Service->editUser2($request->all(), $id));
         }
 
         /**
@@ -70,7 +68,7 @@
 
         public function delete($id)
         {
-            return $this->successResponse($this->user2Service->deleteUser($id));
+            return $this->successResponse($this->user2Service->deleteUser2($id));
         }
     }
 ?>
