@@ -8,7 +8,8 @@
     use DB;
     use App\Services\User1Service; // user1 Services
 
-    Class User1Controller extends Controller {
+    Class User1Controller extends Controller 
+    {
         // use to add your Traits ApiResponser
         use ApiResponser;
         /**
@@ -22,7 +23,8 @@
          * @return void
          */
 
-        public function __construct(User1Service $user1Service){
+        public function __construct(User1Service $user1Service)
+        {
             $this->user1Service = $user1Service;
         }
         
@@ -36,6 +38,10 @@
           return $this->successResponse($this->user1Service->obtainUsers1());
         }
     
+
+
+
+
         public function add(Request $request)
         {
             return $this->successResponse($this->user1Service->createUser1($request->all(), Response::HTTP_CREATED));
